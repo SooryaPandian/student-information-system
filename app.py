@@ -203,6 +203,6 @@ def view_admins():
     cursor.close()
     connection.close()
 
-    return render_template('admins.html', admins=admins) 
+    return render_template('admins.html', admins=admins)
 if __name__ == '__main__':
     app.run(debug=True)
