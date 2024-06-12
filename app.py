@@ -55,7 +55,7 @@ def delete_admin(id):
 
 
 # Login route
-@app.route('/login', methods=['GET', 'POST'])
+@app.route( '/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form['email']

@@ -13,7 +13,13 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-image: url("{{ url_for('static', filename='login-img.jpg') }}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
+
         .container {
             background: #fff;
             padding: 20px;
@@ -44,7 +50,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg.img">
     <div class="container">
         <h1>Register New Student</h1>
         <form action="{{ url_for('register') }}" method="post">
