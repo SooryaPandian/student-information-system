@@ -17,6 +17,7 @@ Before you begin, ensure you have met the following requirements:
 
 - You have installed Python 3.x
 - You have installed the required Python packages listed in `requirements.txt`
+- You have a MySQL database setup
 
 ## Installation
 
@@ -33,15 +34,42 @@ cd student-information-system
 pip install -r requirements.txt
 ```
 
+3. Create the MySQL database and tables. Connect to your MySQL database and run the following query:
+
+```sql
+CREATE DATABASE student_information_system;
+
+USE student_information_system;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15),
+    address VARCHAR(255)
+);
+```
+
 ## Usage
 
-1. Run the application:
+1. Update the database connection details in `app.py`:
+
+```python
+app.config['MYSQL_HOST'] = 'your_mysql_host'
+app.config['MYSQL_USER'] = 'your_mysql_user'
+app.config['MYSQL_PASSWORD'] = 'your_mysql_password'
+app.config['MYSQL_DB'] = 'student_information_system'
+```
+
+2. Run the application:
 
 ```bash
 python app.py
 ```
 
-2. Open your web browser and navigate to `http://localhost:5000` to access the Student Information System.
+3. Open your web browser and navigate to `http://localhost:5000` to access the Student Information System.
 
 ## Project Structure
 
@@ -68,15 +96,6 @@ student-information-system/
 - `requirements.txt`: Lists the Python packages required for the project.
 - `README.md`: This file.
 
-## Contributing
-
-To contribute to this project, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-branch`
-3. Make your changes and commit them: `git commit -m 'Add feature'`
-4. Push to the branch: `git push origin feature-branch`
-5. Submit a pull request.
 
 ## License
 
